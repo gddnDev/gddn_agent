@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pinming.siteagent.mapper.AgentOperationLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.pinming.siteagent.model.AgentOperationLog" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="operation_user_id" property="operationUserId" jdbcType="INTEGER" />
+    <result column="operation_company_id" property="operationCompanyId" jdbcType="INTEGER" />
+    <result column="operation_project_id" property="operationProjectId" jdbcType="INTEGER" />
+    <result column="operation_user_name" property="operationUserName" jdbcType="VARCHAR" />
+    <result column="operation_company_name" property="operationCompanyName" jdbcType="VARCHAR" />
+    <result column="operation_project_name" property="operationProjectName" jdbcType="VARCHAR" />
+    <result column="operation_type" property="operationType" jdbcType="TINYINT" />
+    <result column="operation_type_detail" property="operationTypeDetail" jdbcType="TINYINT" />
+    <result column="operation_remark" property="operationRemark" jdbcType="VARCHAR" />
+    <result column="timestamp_create" property="timestampCreate" jdbcType="TIMESTAMP" />
+    <result column="timestamp_modify" property="timestampModify" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, operation_user_id, operation_company_id, operation_project_id, operation_user_name, 
+    operation_company_name, operation_project_name, operation_type, operation_type_detail, 
+    operation_remark, timestamp_create, timestamp_modify
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.pinming.siteagent.model.AgentOperationLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_agent_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="cn.pinming.siteagent.model.AgentOperationLogExample" >
+    delete from d_agent_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.pinming.siteagent.model.AgentOperationLog" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into d_agent_operation_log (id, operation_user_id, operation_company_id, 
+      operation_project_id, operation_user_name, 
+      operation_company_name, operation_project_name, 
+      operation_type, operation_type_detail, operation_remark, 
+      timestamp_create, timestamp_modify)
+    values (#{id,jdbcType=INTEGER}, #{operationUserId,jdbcType=INTEGER}, #{operationCompanyId,jdbcType=INTEGER}, 
+      #{operationProjectId,jdbcType=INTEGER}, #{operationUserName,jdbcType=VARCHAR}, 
+      #{operationCompanyName,jdbcType=VARCHAR}, #{operationProjectName,jdbcType=VARCHAR}, 
+      #{operationType,jdbcType=TINYINT}, #{operationTypeDetail,jdbcType=TINYINT}, #{operationRemark,jdbcType=VARCHAR}, 
+      #{timestampCreate,jdbcType=TIMESTAMP}, #{timestampModify,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.pinming.siteagent.model.AgentOperationLog" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into d_agent_operation_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="operationUserId != null" >
+        operation_user_id,
+      </if>
+      <if test="operationCompanyId != null" >
+        operation_company_id,
+      </if>
+      <if test="operationProjectId != null" >
+        operation_project_id,
+      </if>
+      <if test="operationUserName != null" >
+        operation_user_name,
+      </if>
+      <if test="operationCompanyName != null" >
+        operation_company_name,
+      </if>
+      <if test="operationProjectName != null" >
+        operation_project_name,
+      </if>
+      <if test="operationType != null" >
+        operation_type,
+      </if>
+      <if test="operationTypeDetail != null" >
+        operation_type_detail,
+      </if>
+      <if test="operationRemark != null" >
+        operation_remark,
+      </if>
+      <if test="timestampCreate != null" >
+        timestamp_create,
+      </if>
+      <if test="timestampModify != null" >
+        timestamp_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="operationUserId != null" >
+        #{operationUserId,jdbcType=INTEGER},
+      </if>
+      <if test="operationCompanyId != null" >
+        #{operationCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="operationProjectId != null" >
+        #{operationProjectId,jdbcType=INTEGER},
+      </if>
+      <if test="operationUserName != null" >
+        #{operationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operationCompanyName != null" >
+        #{operationCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="operationProjectName != null" >
+        #{operationProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null" >
+        #{operationType,jdbcType=TINYINT},
+      </if>
+      <if test="operationTypeDetail != null" >
+        #{operationTypeDetail,jdbcType=TINYINT},
+      </if>
+      <if test="operationRemark != null" >
+        #{operationRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="timestampCreate != null" >
+        #{timestampCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timestampModify != null" >
+        #{timestampModify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.pinming.siteagent.model.AgentOperationLogExample" resultType="java.lang.Integer" >
+    select count(*) from d_agent_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update d_agent_operation_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationUserId != null" >
+        operation_user_id = #{record.operationUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationCompanyId != null" >
+        operation_company_id = #{record.operationCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationProjectId != null" >
+        operation_project_id = #{record.operationProjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationUserName != null" >
+        operation_user_name = #{record.operationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationCompanyName != null" >
+        operation_company_name = #{record.operationCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationProjectName != null" >
+        operation_project_name = #{record.operationProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationType != null" >
+        operation_type = #{record.operationType,jdbcType=TINYINT},
+      </if>
+      <if test="record.operationTypeDetail != null" >
+        operation_type_detail = #{record.operationTypeDetail,jdbcType=TINYINT},
+      </if>
+      <if test="record.operationRemark != null" >
+        operation_remark = #{record.operationRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timestampCreate != null" >
+        timestamp_create = #{record.timestampCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.timestampModify != null" >
+        timestamp_modify = #{record.timestampModify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update d_agent_operation_log
+    set id = #{record.id,jdbcType=INTEGER},
+      operation_user_id = #{record.operationUserId,jdbcType=INTEGER},
+      operation_company_id = #{record.operationCompanyId,jdbcType=INTEGER},
+      operation_project_id = #{record.operationProjectId,jdbcType=INTEGER},
+      operation_user_name = #{record.operationUserName,jdbcType=VARCHAR},
+      operation_company_name = #{record.operationCompanyName,jdbcType=VARCHAR},
+      operation_project_name = #{record.operationProjectName,jdbcType=VARCHAR},
+      operation_type = #{record.operationType,jdbcType=TINYINT},
+      operation_type_detail = #{record.operationTypeDetail,jdbcType=TINYINT},
+      operation_remark = #{record.operationRemark,jdbcType=VARCHAR},
+      timestamp_create = #{record.timestampCreate,jdbcType=TIMESTAMP},
+      timestamp_modify = #{record.timestampModify,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

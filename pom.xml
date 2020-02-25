@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cn.pinming</groupId>
+    <artifactId>site_agent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>smart_site_agent</name>
+    <description>samrt site agent management system</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <repositories><!-- 代码库 -->
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>maven-uk</id>
+            <url>https://maven.tmatesoft.com/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>maven-repo1</id>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven-center2</id>
+            <url>http://central.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+        <!--品茗repsitory-->
+        <repository>
+            <id>nexus</id>
+            <url>http://nexus.pinming.org/repository/maven-public/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>pms-nexus-releases</id>
+            <url>http://nexus.pinming.org/repository/maven-releases/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>pms-nexus-snapshots</id>
+            <url>http://nexus.pinming.org/repository/maven-snapshots/</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>jcenter-releases</id>
+            <name>jcenter</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>pms-nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://nexus.pinming.org/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>pms-nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://nexus.pinming.org/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter-snapshots</id>
+            <name>jcenter</name>
+            <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>jcenter-releases</id>
+            <name>jcenter</name>
+            <url>http://jcenter.bintray.com</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.pinming</groupId>
+            <artifactId>zhuang</artifactId>
+            <version>1.6.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.61</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--gddn api-->
+        <dependency>
+            <groupId>cn.pinming</groupId>
+            <artifactId>gddn.api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!--dubbo-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
+        <!--swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
+        <!--&lt;!&ndash;swagger文档&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>io.github.swagger2markup</groupId>-->
+            <!--<artifactId>swagger2markup</artifactId>-->
+            <!--<version>1.3.1</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>nl.jworks.markdown_to_asciidoc</groupId>-->
+            <!--<artifactId>markdown_to_asciidoc</artifactId>-->
+            <!--<version>1.0</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+            <!--<artifactId>jackson-dataformat-yaml</artifactId>-->
+            <!--<version>2.9.9</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+            <!--<version>2.9.9</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>ch.netzwerg</groupId>-->
+            <!--<artifactId>paleo-core</artifactId>-->
+            <!--<version>0.10.2</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>io.javaslang</groupId>-->
+            <!--<artifactId>javaslang</artifactId>-->
+            <!--<version>2.0.4</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>io.javaslang</groupId>-->
+            <!--<artifactId>javaslang-match</artifactId>-->
+            <!--<version>2.0.4</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.mybatis.generator</groupId>-->
+                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+                <!--<version>1.3.1</version>-->
+                <!--<configuration>-->
+                    <!--<configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>-->
+                    <!--<overwrite>true</overwrite>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.asciidoctor</groupId>-->
+                <!--<artifactId>asciidoctor-maven-plugin</artifactId>-->
+                <!--<version>1.5.6</version>-->
+                <!--<configuration>-->
+                    <!--<sourceDirectory>./docs/asciidoc/generated</sourceDirectory>-->
+                    <!--<outputDirectory>./docs/asciidoc/html</outputDirectory>-->
+                    <!--<headerFooter>true</headerFooter>-->
+                    <!--<doctype>book</doctype>-->
+                    <!--<backend>html</backend>-->
+                    <!--<sourceHighlighter>coderay</sourceHighlighter>-->
+                    <!--<attributes>-->
+                        <!--&lt;!&ndash;菜单栏在左边&ndash;&gt;-->
+                        <!--<toc>left</toc>-->
+                        <!--&lt;!&ndash;多标题排列&ndash;&gt;-->
+                        <!--<toclevels>3</toclevels>-->
+                        <!--&lt;!&ndash;自动打数字序号&ndash;&gt;-->
+                        <!--<sectnums>true</sectnums>-->
+                    <!--</attributes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
+</project>

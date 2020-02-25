@@ -1,0 +1,431 @@
+
+[[_definitions]]
+== 定义
+
+[[_agentstatistics]]
+=== AgentStatistics
+代理商统计数据
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**authenticatedQuantity** +
+__可选__|认证的总数 +
+**样例** : `"认证的总数"`|integer (int32)
+|**currentYearOfAuthenticatedQuantity** +
+__可选__|今年认证的总数 +
+**样例** : `"今年认证的总数"`|integer (int32)
+|===
+
+
+[[_companyvo]]
+=== CompanyVo
+企业信息
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**address** +
+__可选__|详细地址 +
+**样例** : `"详细地址"`|string
+|**administrator** +
+__可选__|超级管理员姓名（通信证号） +
+**样例** : `"超级管理员姓名（通信证号）"`|string
+|**companyId** +
+__可选__|企业ID +
+**样例** : `0`|integer (int32)
+|**companyName** +
+__可选__|企业详细地址 +
+**样例** : `"企业详细地址"`|string
+|**companyType** +
+__可选__|企业类型(1.专业分包2.设备分包3.材料分包4.后勤服务5.特殊设备6.劳务分包7.监理8.建设单位9.总承包单位10.勘察11.设计单位12.租赁13.其他) +
+**模式** : `"^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==\|[A-Za-z0-9+/]{3}=)?$"` +
+**样例** : `"企业类型(1.专业分包2.设备分包3.材料分包4.后勤服务5.特殊设备6.劳务分包7.监理8.建设单位9.总承包单位10.勘察11.设计单位12.租赁13.其他)"`|string (byte)
+|**contactsMobile** +
+__可选__|联系人手机号 +
+**样例** : `"联系人手机号"`|string
+|**contactsName** +
+__可选__|联系人姓名 +
+**样例** : `"联系人姓名"`|string
+|**createTime** +
+__可选__|创建时间时间戳 +
+**样例** : `"创建时间时间戳"`|integer (int64)
+|**creater** +
+__可选__|创建人 +
+**样例** : `"创建人"`|string
+|===
+
+
+[[_modelandview]]
+=== ModelAndView
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**empty** +
+__可选__|**样例** : `true`|boolean
+|**model** +
+__可选__|**样例** : `"object"`|object
+|**modelMap** +
+__可选__|**样例** : `{
+  "string" : "object"
+}`|< string, object > map
+|**reference** +
+__可选__|**样例** : `true`|boolean
+|**status** +
+__可选__|**样例** : `"string"`|enum (100 CONTINUE, 101 SWITCHING_PROTOCOLS, 102 PROCESSING, 103 CHECKPOINT, 200 OK, 201 CREATED, 202 ACCEPTED, 203 NON_AUTHORITATIVE_INFORMATION, 204 NO_CONTENT, 205 RESET_CONTENT, 206 PARTIAL_CONTENT, 207 MULTI_STATUS, 208 ALREADY_REPORTED, 226 IM_USED, 300 MULTIPLE_CHOICES, 301 MOVED_PERMANENTLY, 302 FOUND, 302 MOVED_TEMPORARILY, 303 SEE_OTHER, 304 NOT_MODIFIED, 305 USE_PROXY, 307 TEMPORARY_REDIRECT, 308 PERMANENT_REDIRECT, 400 BAD_REQUEST, 401 UNAUTHORIZED, 402 PAYMENT_REQUIRED, 403 FORBIDDEN, 404 NOT_FOUND, 405 METHOD_NOT_ALLOWED, 406 NOT_ACCEPTABLE, 407 PROXY_AUTHENTICATION_REQUIRED, 408 REQUEST_TIMEOUT, 409 CONFLICT, 410 GONE, 411 LENGTH_REQUIRED, 412 PRECONDITION_FAILED, 413 PAYLOAD_TOO_LARGE, 413 REQUEST_ENTITY_TOO_LARGE, 414 URI_TOO_LONG, 414 REQUEST_URI_TOO_LONG, 415 UNSUPPORTED_MEDIA_TYPE, 416 REQUESTED_RANGE_NOT_SATISFIABLE, 417 EXPECTATION_FAILED, 418 I_AM_A_TEAPOT, 419 INSUFFICIENT_SPACE_ON_RESOURCE, 420 METHOD_FAILURE, 421 DESTINATION_LOCKED, 422 UNPROCESSABLE_ENTITY, 423 LOCKED, 424 FAILED_DEPENDENCY, 425 TOO_EARLY, 426 UPGRADE_REQUIRED, 428 PRECONDITION_REQUIRED, 429 TOO_MANY_REQUESTS, 431 REQUEST_HEADER_FIELDS_TOO_LARGE, 451 UNAVAILABLE_FOR_LEGAL_REASONS, 500 INTERNAL_SERVER_ERROR, 501 NOT_IMPLEMENTED, 502 BAD_GATEWAY, 503 SERVICE_UNAVAILABLE, 504 GATEWAY_TIMEOUT, 505 HTTP_VERSION_NOT_SUPPORTED, 506 VARIANT_ALSO_NEGOTIATES, 507 INSUFFICIENT_STORAGE, 508 LOOP_DETECTED, 509 BANDWIDTH_LIMIT_EXCEEDED, 510 NOT_EXTENDED, 511 NETWORK_AUTHENTICATION_REQUIRED)
+|**view** +
+__可选__|**样例** : `"<<_view>>"`|<<_view,View>>
+|**viewName** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_cf83d861019e9004281516764e8d49f3]]
+=== Pagination«CompanyVo»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**list** +
+__可选__|结果列表 +
+**样例** : `"结果列表"`|< <<_companyvo,CompanyVo>> > array
+|**page** +
+__可选__|页码 +
+**样例** : `"页码"`|integer (int32)
+|**size** +
+__可选__|每页行数 +
+**样例** : `"每页行数"`|integer (int32)
+|**totalPage** +
+__可选__|总页数 +
+**样例** : `"总页数"`|integer (int32)
+|**totalRows** +
+__可选__|总行数 +
+**样例** : `"总行数"`|integer (int32)
+|===
+
+
+[[_aa9228011fca81a766e8f09d3c41a6d9]]
+=== Pagination«ProjectVo»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**list** +
+__可选__|结果列表 +
+**样例** : `"结果列表"`|< <<_projectvo,ProjectVo>> > array
+|**page** +
+__可选__|页码 +
+**样例** : `"页码"`|integer (int32)
+|**size** +
+__可选__|每页行数 +
+**样例** : `"每页行数"`|integer (int32)
+|**totalPage** +
+__可选__|总页数 +
+**样例** : `"总页数"`|integer (int32)
+|**totalRows** +
+__可选__|总行数 +
+**样例** : `"总行数"`|integer (int32)
+|===
+
+
+[[_projectvo]]
+=== ProjectVo
+项目信息
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**address** +
+__可选__|详细地址 +
+**样例** : `"详细地址"`|string
+|**company** +
+__可选__|所属企业（企业id） +
+**样例** : `"所属企业（企业id）"`|string
+|**createTime** +
+__可选__|创建时间时间戳 +
+**样例** : `"创建时间时间戳"`|integer (int64)
+|**creater** +
+__可选__|创建人 +
+**样例** : `"创建人"`|string
+|**manager** +
+__可选__|项目负责人 +
+**样例** : `"项目负责人"`|string
+|**projectId** +
+__可选__|项目ID +
+**样例** : `"项目ID"`|integer (int32)
+|**projectName** +
+__可选__|项目名称 +
+**样例** : `"项目名称"`|string
+|**projectType** +
+__可选__|项目类型 +
+**样例** : `"项目类型"`|integer (int32)
+|===
+
+
+[[_view]]
+=== View
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**contentType** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_2db97cae51db93261c6e984fac8cdb10]]
+=== 产品类型
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**authorizingQuantity** +
+__可选__|授权数量 +
+**样例** : `"授权数量"`|integer (int32)
+|**authorizingUnusedQuantity** +
+__可选__|未使用授权数量 +
+**样例** : `"未使用授权数量"`|integer (int32)
+|**authorizingUsageQuantity** +
+__可选__|已使用授权数量 +
+**样例** : `"已使用授权数量"`|integer (int32)
+|**productId** +
+__可选__|产品id +
+**样例** : `"产品id"`|integer (int32)
+|**productName** +
+__可选__|授权产品名称 +
+**样例** : `"授权产品名称"`|string
+|**productType** +
+__可选__|产品类型：0 企业级 1 项目级 +
+**样例** : `"产品类型：0 企业级 1 项目级"`|integer (int32)
+|===
+
+
+[[_61644d1f73db59ff2efdbc0bf7bafb2e]]
+=== 产品详情
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**applications** +
+__可选__|应用名称 +
+**样例** : `"应用名称"`|< <<_5b0520a9bf5e8d87c0b8c6e58766e184,应用>> > array
+|**productName** +
+__可选__|产品名称 +
+**样例** : `"产品名称"`|string
+|===
+
+
+[[_5b0520a9bf5e8d87c0b8c6e58766e184]]
+=== 应用
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**applicationId** +
+__可选__|应用id +
+**样例** : `"应用id"`|integer (int32)
+|**applicationName** +
+__可选__|应用名称 +
+**样例** : `"应用名称"`|string
+|===
+
+
+[[_e5ddf48022ae6d2b4c39915efc48e0f8]]
+=== 成功的请求
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `"object"`|object
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_ffe815d8bd31d2ab15eea9d2fa51e71c]]
+=== 成功的请求«AgentStatistics»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `"<<_agentstatistics>>"`|<<_agentstatistics,AgentStatistics>>
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_a3590e4473e0c901c62cb639f4fba99d]]
+=== 成功的请求«List«产品类型»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `[ "<<_2db97cae51db93261c6e984fac8cdb10>>" ]`|< <<_2db97cae51db93261c6e984fac8cdb10,产品类型>> > array
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_602e8fea19a78acc968bf0cf3a308097]]
+=== 成功的请求«List«日志信息»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `[ "<<_b27fb728413ba88b74d026f485b39d5f>>" ]`|< <<_b27fb728413ba88b74d026f485b39d5f,日志信息>> > array
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_a69fad129a99ca29233d74c1293f9e76]]
+=== 成功的请求«Pagination«CompanyVo»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `"<<_cf83d861019e9004281516764e8d49f3>>"`|<<_cf83d861019e9004281516764e8d49f3,Pagination«CompanyVo»>>
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_6b37d272121b46efe207fa6e17b2fb09]]
+=== 成功的请求«Pagination«ProjectVo»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `"<<_aa9228011fca81a766e8f09d3c41a6d9>>"`|<<_aa9228011fca81a766e8f09d3c41a6d9,Pagination«ProjectVo»>>
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_f1761d32df15a3f2447e460c01bbd6c0]]
+=== 成功的请求«产品详情»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求的状态码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|请求返回的内容 +
+**样例** : `"<<_61644d1f73db59ff2efdbc0bf7bafb2e>>"`|<<_61644d1f73db59ff2efdbc0bf7bafb2e,产品详情>>
+|**message** +
+__可选__|请求的结果信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|请求是否成功 +
+**样例** : `false`|boolean
+|===
+
+
+[[_b27fb728413ba88b74d026f485b39d5f]]
+=== 日志信息
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**id** +
+__可选__|主键 +
+**样例** : `"主键"`|integer (int32)
+|**operateUserId** +
+__可选__|操作人 +
+**样例** : `"操作人"`|string
+|**operateUserName** +
+__可选__|操作人姓名 +
+**样例** : `"操作人姓名"`|string
+|**operationCompanyId** +
+__可选__|被操作企业 +
+**样例** : `"被操作企业"`|integer (int32)
+|**operationCompanyName** +
+__可选__|被操作企业名称 +
+**样例** : `"被操作企业名称"`|string
+|**operationProjectId** +
+__可选__|被操作项目id +
+**样例** : `"被操作项目id"`|integer (int32)
+|**operationProjectName** +
+__可选__|被操作项目名称 +
+**样例** : `"被操作项目名称"`|string
+|**operationRemark** +
+__可选__|日志备注 +
+**样例** : `"日志备注"`|string
+|**operationType** +
+__可选__|0 代理商管理 1 产品管理 2 代理商企业管理 3 代理商项目管理 4 产品授权 +
+**模式** : `"^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==\|[A-Za-z0-9+/]{3}=)?$"` +
+**样例** : `"0 代理商管理 1 产品管理 2 代理商企业管理 3 代理商项目管理 4 产品授权"`|string (byte)
+|**operationTypeDetail** +
+__可选__|操作详细类型：0 新增 1 更新 2 删除 +
+**模式** : `"^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==\|[A-Za-z0-9+/]{3}=)?$"` +
+**样例** : `"操作详细类型：0 新增 1 更新 2 删除"`|string (byte)
+|**timestampCreate** +
+__可选__|创建时间 +
+**样例** : `"创建时间"`|integer (int64)
+|**timestampModify** +
+__可选__|修改时间 +
+**样例** : `"修改时间"`|integer (int64)
+|===
+
+
+

@@ -1,0 +1,8 @@
+
+mvn install:install-file -Dfile=E:\smart_site_agent\lib\paleo-core-0.10.2.jar -DgroupId=ch.netzwerg -DartifactId=paleo-core -Dversion=0.10.2 -Dpackaging=jar
+
+mvn install:install-file -Dfile=E:\smart_site_agent\lib\markdown_to_asciidoc-1.0.jar -DgroupId=ca.szc.thirdparty.nl.jworks.markdown_to_asciidoc -DartifactId=markdown_to_asciidoc -Dversion=1.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=E:\smart_site_agent\lib\asciidoctor-maven-plugin-1.5.6.jar -DgroupId=org.asciidoctor -DartifactId=asciidoctor-maven-plugin -Dversion=1.5.6 -Dpackaging=jar
+
+mvn install:install-file -Dfile=E:\smart_site_agent\lib\jackson-dataformat-yaml-2.9.9.jar -DgroupId=com.fasterxml.jackson.dataformat -DartifactId=jackson-dataformat-yaml -Dversion=2.9.9 -Dpackaging=jar
