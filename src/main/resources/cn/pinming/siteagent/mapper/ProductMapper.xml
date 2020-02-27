@@ -187,4 +187,46 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
+
+  <!-- 新增产品-->
+  <insert id="create" parameterType="cn.pinming.siteagent.model.Product">
+INSERT INTO d_product ( product_name, type, status, timestamp_create )
+VALUES
+	(#{productName},#{type},0,NOW())
+  </insert>
+  <!-- 新增产品组合应用-->
+  <insert id="createProductNumber" parameterMap="cn.pinming.siteagent.model.ProductAppliction">
+INSERT INTO d_product_appliction ( product_id, application_id, timestamp_create )
+VALUES
+	( #{productId}, #{applicationId}, NOW( ) )
+</insert>
+  <!-- 修改产品-->
+  <update id="update" parameterType="cn.pinming.siteagent.model.Product">
+UPDATE d_product
+SET product_name = #{productName},
+type = #{type},
+timestamp_modify = NOW( )
+WHERE
+	id = #{id}
+  </update>
+  <!-- 修改产品组合应用-->
+  <delete id="updateProductNumber" parameterType="cn.pinming.siteagent.model.ProductAppliction">
+DELETE
+FROM
+d_product_appliction
+WHERE
+	application_id = #{applicationId}
+	</delete>
+  <!-- 删除产品组合-->
+  <update id="delete" parameterType="cn.pinming.siteagent.model.Product">
+UPDATE d_product
+SET
+STATUS = 2,
+timestamp_modify = NOW( )
+WHERE
+	id = 1
+  </update>
+
+
 </mapper>
